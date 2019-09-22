@@ -1,0 +1,22 @@
+{
+  "name": "maha-lap",
+  "version": "1.0.0",
+  "description": "ทำนายตัวเลขจากความฝัน",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrGrayman/maha-lap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrGrayman/maha-lap/issues"
+  },
+  "homepage": "https://github.com/MrGrayman/maha-lap#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
