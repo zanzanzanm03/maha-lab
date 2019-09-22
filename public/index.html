@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ให้ความฝันทำนายกัน</title>
+    <link rel="stylesheet" href="/public/bulma.min.css" />
+  </head>
+  <body>
+    <div class="columns is-mobile is-centered">
+      <div class="column is-half">
+        <section class="section">
+          <div class="container has-text-centered">
+            <h2 class="subtitle">
+              <strong>ใบ้หวย</strong> โดย<strong>สำนักเจ๊ติ๋ม ข้าวมันไก่</strong
+              >!
+            </h2>
+            <img src="/public/tim.jpg" />
+            <div class="columns">
+              <div class="column is-half field">
+                <label class="label">ฝันวันไหน</label>
+                <div class="control has-text-centered	">
+                  <div class="select">
+                    <select id="day">
+                      <option>อาทิตย์</option>
+                      <option>จันทร์</option>
+                      <option>อังคาร</option>
+                      <option>พุธ</option>
+                      <option>พฤหัสบดี</option>
+                      <option>ศุกร์</option>
+                      <option>เสาร์</option>
+                      <option>สงกรานต์</option>
+                      <option>ฮาโลวีน</option>
+                      <option>คริสมาสต์</option>
+                      <option>อื่นๆ</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-half field">
+                <label class="label">ในฝันเป็นเวลาไหน</label>
+                <div class="control has-text-centered	">
+                  <div class="select">
+                    <select id="time">
+                      <option>กลางวัน</option>
+                      <option>กลางคืน</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">ฝันว่าอะไร</label>
+              <div class="control">
+                <input id="story" class="input" type="text" placeholder="" />
+              </div>
+            </div>
+            <div class="field">
+              <div class="control has-text-centered	">
+                <button class="button is-link" onclick="namo()">ทำนาย</button>
+              </div>
+            </div>
+            <h1 class="title" style="color:red" id="result"></h1>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      function namo() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.responseText);
+            document.getElementById("result").innerHTML = data.result;
+          }
+        };
+        var url =
+          "/namo?day=" +
+          document.getElementById("day").value +
+          "&time=" +
+          document.getElementById("time").value +
+          "&story=" +
+          document.getElementById("story").value;
+        xhttp.open("GET", url, true);
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>

@@ -72,8 +72,8 @@ class MahaLap {
   }
   static namo(day, story, time) {
     const resultday = this.tamnaiWithDay(day);
-    const resulstory = this.tamnaiWitstory(story);
-    const resulttime = this.tamnaiWithtime(time);
+    const resulstory = this.tamnaiWithStory(story);
+    const resulttime = this.tamnaiWithTime(time);
     return (resultday * resulstory * resulttime * 100) % 1000;
   }
 }
